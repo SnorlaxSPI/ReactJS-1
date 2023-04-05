@@ -1,4 +1,4 @@
-import './styles/global.css'
+import './styles/global.scss'
 
 import React from 'react';
 import { createRoot } from 'react-dom/client';
@@ -8,6 +8,4 @@ export function App() {
 };
 
 createRoot(document.getElementById('root')).render(<App />);
-
-
 
