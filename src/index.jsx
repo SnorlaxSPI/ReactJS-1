@@ -1,11 +1,9 @@
-import './styles/global.scss'
-
 import React from 'react';
+
+import { App } from './App.jsx';
 import { createRoot } from 'react-dom/client';
 
-export function App() {
-  return <h1>Hello React World!</h1>
-};
+import './styles/global.scss'
 
 createRoot(document.getElementById('root')).render(<App />);
 

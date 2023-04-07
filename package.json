@@ -5,7 +5,7 @@
   "author": "aflinsjr@icloud.com <aflinsjr@icloud.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack serve --mode development",
+    "dev": "webpack serve --mode development",
     "build": "cross-env NODE_ENV=production webpack"
   },
   "dependencies": {
