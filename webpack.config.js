@@ -1,5 +1,6 @@
 const path = require('path');
 const htmlWebpackPligin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const isDevelopment = process.env.NODE_END !== 'production';
 
@@ -12,10 +13,11 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [
+    isDevelopment && new ReactRefreshWebpackPlugin(),
     new htmlWebpackPligin({
       template: path.resolve(__dirname, 'public', 'index.html')
     })
-  ],
+  ].filter(Boolean),
   module: {
     rules: [
       {
@@ -25,6 +27,8 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: [
+              isDevelopment && require.resolve('react-refresh/babel')].filter(Boolean)
           }
         }
       },
@@ -36,6 +40,7 @@ module.exports = {
     ]
   },
   devServer: {
+    hot:true,
     static: {
       directory: path.join(__dirname, 'public'),
     },
